@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Controle de Estudos</title>
+
+  <!-- fonte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- css -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- topo -->
+  <header>
+    <div class="header-content">
+      <h1>📚 Controle de Estudos</h1>
+      <div class="header-stats">
+        <div class="stat">
+          <span id="total-disciplinas">0</span>
+          <p>Disciplinas</p>
+        </div>
+        <div class="stat">
+          <span id="total-horas">0h</span>
+          <p>Horas Estudadas</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- cadastro -->
+    <section class="form-section">
+      <h2>Nova Disciplina</h2>
+
+      <div class="form-group">
+        <label for="nome">Nome da Disciplina</label>
+        <input type="text" id="nome" placeholder="Ex: Cálculo I">
+      </div>
+
+      <div class="form-group">
+        <label for="professor">Professor Responsável</label>
+        <input type="text" id="professor" placeholder="Ex: Prof. João Silva">
+      </div>
+
+      <div class="form-group">
+        <label for="carga">Carga Horária Total (horas)</label>
+        <input type="number" id="carga" placeholder="Ex: 80" min="1">
+      </div>
+
+      <div class="form-group">
+        <label for="area">Área do Conhecimento</label>
+        <select id="area">
+          <option value="">Selecione uma área...</option>
+          <option value="Exatas">Exatas</option>
+          <option value="Humanas">Humanas</option>
+          <option value="Biologicas">Biológicas</option>
+          <option value="Tecnologia">Tecnologia</option>
+        </select>
+      </div>
+
+      <button onclick="salvarDisciplina()">Salvar Disciplina</button>
+    </section>
+
+    <!-- horas -->
+    <section class="form-section horas-section">
+      <h2>Registrar Horas Estudadas</h2>
+
+      <div class="form-group">
+        <label for="sel-disciplina">Disciplina</label>
+        <select id="sel-disciplina">
+          <option value="">Selecione...</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="horas-input">Quantas horas?</label>
+        <input type="number" id="horas-input" placeholder="Ex: 2" min="0.5" step="0.5">
+      </div>
+
+      <button class="btn-verde" onclick="registrarHoras()">+ Adicionar Horas</button>
+    </section>
+
+    <!-- lista -->
+    <section class="lista-section">
+
+      <!-- busca -->
+      <div class="busca-wrapper">
+        <input type="text" id="busca" placeholder="🔍 Buscar disciplina pelo nome...">
+      </div>
+
+      <!-- filtros -->
+      <div class="filtros">
+        <button class="filtro ativo" data-area="Todos"      onclick="filtrar(this)">Todos</button>
+        <button class="filtro"       data-area="Exatas"     onclick="filtrar(this)">Exatas</button>
+        <button class="filtro"       data-area="Humanas"    onclick="filtrar(this)">Humanas</button>
+        <button class="filtro"       data-area="Biologicas" onclick="filtrar(this)">Biológicas</button>
+        <button class="filtro"       data-area="Tecnologia" onclick="filtrar(this)">Tecnologia</button>
+      </div>
+
+      <!-- cards entram aqui -->
+      <div id="lista-disciplinas"></div>
+
+    </section>
+
+  </main>
+
+  <!-- modal editar -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <h2>Editar Disciplina</h2>
+
+      <div class="form-group">
+        <label>Nome da Disciplina</label>
+        <input type="text" id="m-nome">
+      </div>
+
+      <div class="form-group">
+        <label>Professor Responsável</label>
+        <input type="text" id="m-professor">
+      </div>
+
+      <div class="form-group">
+        <label>Carga Horária Total (horas)</label>
+        <input type="number" id="m-carga" min="1">
+      </div>
+
+      <div class="form-group">
+        <label>Área do Conhecimento</label>
+        <select id="m-area">
+          <option value="Exatas">Exatas</option>
+          <option value="Humanas">Humanas</option>
+          <option value="Biologicas">Biológicas</option>
+          <option value="Tecnologia">Tecnologia</option>
+        </select>
+      </div>
+
+      <div class="modal-botoes">
+        <button class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
+        <button onclick="salvarEdicao()">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- aviso -->
+  <div id="toast"></div>
+
+  <!-- js -->
+  <script src="script.js"></script>
+
+</body>
+</html>

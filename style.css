@@ -1,0 +1,372 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --azul: #2f5fb4;
+  --verde: #2d8a46;
+  --vermelho: #bf3b3b;
+  --cinza-bg: #f3f3f3;
+  --cinza-borda: #d5d5d5;
+  --texto: #222;
+
+  --exatas: #2f5fb4;
+  --humanas: #c77a2b;
+  --biologicas: #2d8a46;
+  --tecnologia: #8a3bb8;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cinza-bg);
+  color: var(--texto);
+}
+
+header {
+  background: #fff;
+  border-bottom: 1px solid var(--cinza-borda);
+  padding: 16px;
+}
+
+.header-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+header h1 {
+  font-size: 24px;
+  color: var(--azul);
+}
+
+.header-stats {
+  display: flex;
+  gap: 16px;
+}
+
+.stat {
+  text-align: right;
+}
+
+.stat span {
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+}
+
+.stat p {
+  font-size: 12px;
+  color: #666;
+}
+
+main {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 12px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 14px;
+}
+
+.form-section,
+.lista-section {
+  background: #fff;
+  border: 1px solid var(--cinza-borda);
+  border-radius: 6px;
+  padding: 14px;
+}
+
+.form-section h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.horas-section {
+  grid-column: 1;
+}
+
+.lista-section {
+  grid-column: 2;
+  grid-row: 1 / 3;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  padding: 9px;
+  border: 1px solid var(--cinza-borda);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+button {
+  background: var(--azul);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.92;
+}
+
+.btn-verde {
+  background: var(--verde);
+}
+
+.busca-wrapper {
+  margin-bottom: 10px;
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.filtro {
+  width: auto;
+  padding: 6px 10px;
+  background: #efefef;
+  color: #333;
+  border: 1px solid #d0d0d0;
+  border-radius: 14px;
+  margin-top: 0;
+}
+
+.filtro.ativo {
+  background: #dbe6fb;
+  border-color: #aac0eb;
+}
+
+#lista-disciplinas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card {
+  border: 1px solid var(--cinza-borda);
+  border-left: 6px solid var(--azul);
+  border-radius: 6px;
+  padding: 12px;
+  background: #fff;
+}
+
+.card[data-area="Exatas"] {
+  border-left-color: var(--exatas);
+}
+
+.card[data-area="Humanas"] {
+  border-left-color: var(--humanas);
+}
+
+.card[data-area="Biologicas"] {
+  border-left-color: var(--biologicas);
+}
+
+.card[data-area="Tecnologia"] {
+  border-left-color: var(--tecnologia);
+}
+
+.card-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.card-nome {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.card-professor {
+  font-size: 13px;
+  color: #666;
+}
+
+.badge {
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #eee;
+}
+
+.progresso-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.barra-bg {
+  width: 100%;
+  height: 8px;
+  background: #e8e8e8;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.barra-fill {
+  height: 100%;
+  background: var(--azul);
+}
+
+.card[data-area="Exatas"] .barra-fill {
+  background: var(--exatas);
+}
+
+.card[data-area="Humanas"] .barra-fill {
+  background: var(--humanas);
+}
+
+.card[data-area="Biologicas"] .barra-fill {
+  background: var(--biologicas);
+}
+
+.card[data-area="Tecnologia"] .barra-fill {
+  background: var(--tecnologia);
+}
+
+.card-acoes {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.btn-acao {
+  background: #efefef;
+  color: #333;
+  border: 1px solid #d0d0d0;
+  margin-top: 0;
+}
+
+.btn-acao.excluir {
+  color: #8d1f1f;
+}
+
+.vazio {
+  border: 1px dashed #c9c9c9;
+  border-radius: 6px;
+  padding: 18px;
+  text-align: center;
+  color: #666;
+}
+
+.vazio .icone {
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay.ativo {
+  display: flex;
+}
+
+.modal {
+  width: 92%;
+  max-width: 430px;
+  background: #fff;
+  border: 1px solid var(--cinza-borda);
+  border-radius: 6px;
+  padding: 14px;
+}
+
+.modal h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.modal-botoes {
+  display: flex;
+  gap: 8px;
+}
+
+.modal-botoes button {
+  margin-top: 0;
+}
+
+.btn-cancelar {
+  background: #efefef;
+  color: #333;
+  border: 1px solid #d0d0d0;
+}
+
+#toast {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background: #2d2d2d;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+#toast.visivel {
+  opacity: 1;
+}
+
+#toast.sucesso {
+  border-left: 4px solid var(--verde);
+}
+
+#toast.erro {
+  border-left: 4px solid var(--vermelho);
+}
+
+@media (max-width: 860px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .lista-section {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-stats {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .card-acoes {
+    flex-direction: column;
+  }
+}
